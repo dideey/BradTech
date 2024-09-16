@@ -11,11 +11,16 @@ router.register(r'users', views.UserViewSet)
 router.register(r'profile', views.ProfileViewSet)
 router.register(r'leaders', views.LeadersViewSet)
 
-# Nested routers for post under leaders
+"""
+Nested routers for post under leaders
+"""
 leaders_router = NestedSimpleRouter(router, r'leaders', lookup='leader')
 leaders_router.register(r'posts', views.PostViewSet, basename='leader-posts')
 
-#Nested routers for comments under posts
+"""
+Nested routers for comments under posts
+"""
+
 post_router = NestedSimpleRouter(leaders_router, r'posts', lookup='post')
 post_router.register(r'comments', views.PostCommentViewSet, basename='post-comments')
 

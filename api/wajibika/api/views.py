@@ -86,15 +86,21 @@ class ProfileViewSet(viewsets.ModelViewSet):
 
 
     def get_queryset(self):
-        # Only return the profile of the user making the request
+        """
+        Only return the profile of the user making the request
+        """
         return self.queryset.filter(user=self.request.user)
     
     def perform_create(self, serializer):
-        #Set user to the current user making the request
+        """
+        Set user to the current user making the request
+        """
         serializer.save(user=self.request.user)
     
     def perform_update(self, serializer):
-        #Ensure the user field is set to the current user making the request
+        """
+        Ensure the user field is set to the current user making the request
+        """
         serializer.save(user=self.request.user)
 
 class LeadersViewSet(viewsets.ModelViewSet):
@@ -207,7 +213,9 @@ class PostViewSet(viewsets.ModelViewSet):
         post_serializer = self.get_serializer(data=post_data)
         post_serializer.is_valid(raise_exception=True)
 
-        # Extract leader_id from URL parameters
+        """
+        Extract leader_id from URL parameters
+        """
         leader_id = self.kwargs.get('leader_id')
         if not leader_id:
             return Response({'error': 'Leader ID is required'}, status=status.HTTP_400_BAD_REQUEST)
