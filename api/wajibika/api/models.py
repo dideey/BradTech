@@ -30,7 +30,7 @@ class Leaders(models.Model):
     id = models.AutoField(primary_key=True)
     position = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
-    image = models.URLField()
+    image = models.URLField(null=True, blank=True)
     county = models.ForeignKey(County, null=True, blank=True, on_delete=models.CASCADE)
     constituency = models.ForeignKey(Constituency, null=True, blank=True, on_delete=models.CASCADE)
     ward = models.ForeignKey(Ward, null=True, blank=True,on_delete=models.CASCADE)
