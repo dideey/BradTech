@@ -136,7 +136,7 @@ class LeadersViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'], url_path='women-reps')
     def list_women_reps(self, request):
         """Endpoint to get all women-reps"""
-        queryset = Leaders.objects.filter(position='women rep')
+        queryset = Leaders.objects.filter(position='women representative')
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
     
@@ -144,7 +144,7 @@ class LeadersViewSet(viewsets.ModelViewSet):
     def list_mps(self, request):
         """Endpoint to get all mps
         """
-        queryset = Leaders.objects.filter(position='mp')
+        queryset = Leaders.objects.filter(position='member of parliament')
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
     
@@ -152,7 +152,7 @@ class LeadersViewSet(viewsets.ModelViewSet):
     def list_mca(self, request):
         """Endpoint to get all mca
         """
-        queryset = Leaders.objects.filter(position='mca')
+        queryset = Leaders.objects.filter(position='memeber of county assembly')
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
     
