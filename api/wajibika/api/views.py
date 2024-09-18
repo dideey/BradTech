@@ -152,7 +152,7 @@ class LeadersViewSet(viewsets.ModelViewSet):
     def list_mca(self, request):
         """Endpoint to get all mca
         """
-        queryset = Leaders.objects.filter(position='memeber of county assembly')
+        queryset = Leaders.objects.filter(position='member of county assembly')
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
     
