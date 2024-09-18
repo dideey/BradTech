@@ -66,4 +66,6 @@ Search Leaders: /dideey.pythonanywhere.com/api/leaders/search/
 Posts: /dideey.pythonanywhere.com/api/leaders/<leader_id>/posts/
 Post-comments: /dideey.pythonanywhere.com/api/leaders/<leader_id>/posts/<post_id>/comments/
 ```
+## Postman collection link
+https://documenter.getpostman.com/view/36596982/2sAXqs5gcF
 ## The Revolution is Here
